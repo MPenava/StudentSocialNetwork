@@ -10,14 +10,14 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card horizontal cardIcon waves-effect waves-dark">
                     <div class="card-image red">
-                        <i class="material-icons dp48">import_export</i>
+                        <i class="material-icons dp48">people_alt</i>
                     </div>
                     <div class="card-stacked red">
                         <div class="card-content">
-                            <h3>84,198</h3>
+                            <h3>{{ $users }}</h3>
                         </div>
                         <div class="card-action">
-                            <strong>REVENUE</strong>
+                            <strong>USERS</strong>
                         </div>
                     </div>
                 </div>
@@ -25,14 +25,14 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card horizontal cardIcon waves-effect waves-dark">
                     <div class="card-image orange">
-                        <i class="material-icons dp48">shopping_cart</i>
+                        <i class="material-icons dp48">library_books</i>
                     </div>
                     <div class="card-stacked orange">
                         <div class="card-content">
                             <h3>36,540</h3>
                         </div>
                         <div class="card-action">
-                            <strong>SALES</strong>
+                            <strong>POSTS</strong>
                         </div>
                     </div>
                 </div>
@@ -40,14 +40,14 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card horizontal cardIcon waves-effect waves-dark">
                     <div class="card-image blue">
-                        <i class="material-icons dp48">equalizer</i>
+                        <i class="material-icons dp48">message</i>
                     </div>
                     <div class="card-stacked blue">
                         <div class="card-content">
                             <h3>24,225</h3>
                         </div>
                         <div class="card-action">
-                            <strong>PRODUCTS</strong>
+                            <strong>MESSAGES</strong>
                         </div>
                     </div>
                 </div>
@@ -55,14 +55,14 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="card horizontal cardIcon waves-effect waves-dark">
                     <div class="card-image green">
-                        <i class="material-icons dp48">supervisor_account</i>
+                        <i class="material-icons dp48">person_add</i>
                     </div>
                     <div class="card-stacked green">
                         <div class="card-content">
                             <h3>88,658</h3>
                         </div>
                         <div class="card-action">
-                            <strong>VISITS</strong>
+                            <strong>FRIENDSHIPS</strong>
                         </div>
                     </div>
                 </div>
