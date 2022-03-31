@@ -44,12 +44,5 @@
             </div>
         {!! Form::close() !!}
     </div>
-
-
-    <!-- {!! Form::open(['method'=>'POST', 'route' => 'users.store', 'files' => true]) !!}
-    <div class="form-group">
-        {!! Form::label('name','Name:') !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-    </div> -->
 </div>
 @endsection

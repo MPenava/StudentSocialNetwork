@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequest;
 use App\Models\User;
 
 class AdminUsersController extends Controller
@@ -35,7 +36,7 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersRequest $request)
+    public function store(UserRequest $request)
     {
         if(trim($request->password) == ""){
             $input = $request->except('password');
@@ -51,7 +52,7 @@ class AdminUsersController extends Controller
             $input['photo'] = $name;
         }
 
-
+        session()->flash('user_created','The user is created.');
         User::create($input);
         return redirect('/admin/users');
     }
@@ -75,7 +76,8 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -85,9 +87,28 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $input = $request->all();
+
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+        if($photo = $request->file('photo')){
+            unlink(public_path() . $user->photo);
+            $name = time() . $photo->getClientOriginalName();
+            $photo->move('images', $name);
+
+            $input['photo'] = $name;
+        }
+
+        $user->update($input);
+        return redirect('/admin/users');
     }
 
     /**
@@ -102,6 +123,7 @@ class AdminUsersController extends Controller
         unlink(public_path() . $user->photo);
 
         $user->delete();
+        session()->flash('user_created','The user was deleted');
         return redirect()->back();
     }
 }
