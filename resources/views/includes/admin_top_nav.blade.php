@@ -8,7 +8,7 @@
                 <a href="#" class="waves-effect waves-dark"><i class="fa fa-users"></i> Users<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">All Users</a>
+                        <a href="{{ route('users.index') }}">All Users</a>
                     </li>
                     <li>
                         <a href="#">Create User</a>

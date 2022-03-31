@@ -39,8 +39,9 @@
         <!--/. NAV TOP  -->
         @include('includes.admin_top_nav')
         <!-- /. NAV SIDE  -->
-
-        @yield('content')
+        <div id="page-wrapper">
+            @yield('content')
+        </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
