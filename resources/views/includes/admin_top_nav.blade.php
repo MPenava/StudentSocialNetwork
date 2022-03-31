@@ -11,7 +11,7 @@
                         <a href="{{ route('users.index') }}">All Users</a>
                     </li>
                     <li>
-                        <a href="#">Create User</a>
+                        <a href="{{ route('users.create') }}">Create User</a>
                     </li>
                 </ul>
             </li>

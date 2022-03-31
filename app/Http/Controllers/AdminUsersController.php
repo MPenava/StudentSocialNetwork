@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
 use App\Models\User;
 
 class AdminUsersController extends Controller
@@ -25,7 +26,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -34,9 +35,25 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
-        //
+        if(trim($request->password) == ""){
+            $input = $request->except('password');
+        }else{
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+        if($photo = $request->file('photo')){
+            $name = time() . $photo->getClientOriginalName();
+            $photo->move('images', $name);
+
+            $input['photo'] = $name;
+        }
+
+
+        User::create($input);
+        return redirect('/admin/users');
     }
 
     /**
@@ -81,6 +98,7 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }
