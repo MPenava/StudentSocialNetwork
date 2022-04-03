@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminPostsController;
+use App\Http\Controllers\AdminMessagesController;
+use App\Http\Controllers\AdminFriendshipsController;
 
 
 /*
@@ -26,6 +28,8 @@ Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('/admin/users', AdminUsersController::class);
     Route::resource('/admin/posts', AdminPostsController::class);
+    Route::get('/admin/messages', [AdminMessagesController::class,'index'])->name('admin.messages.index');
+    Route::get('/admin/friendships', [AdminFriendshipsController::class,'index'])->name('admin.friendships.index');
 
 });
 

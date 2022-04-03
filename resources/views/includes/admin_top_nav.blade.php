@@ -28,11 +28,11 @@
             </li>
             </li>
             <li>
-                <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-comments"></i> Messages</a>
+                <a href="{{ route('admin.messages.index') }}" class="waves-effect waves-dark"><i class="fa fa-comments"></i> Messages</a>
             </li>
 
             <li>
-                <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-user-plus"></i> Friendships</a>
+                <a href="{{ route('admin.friendships.index') }}" class="waves-effect waves-dark"><i class="fa fa-user-plus"></i> Friendships</a>
             </li>
         </ul>
     </div>
