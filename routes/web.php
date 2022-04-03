@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\AdminPostsController;
 
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('/admin/users', AdminUsersController::class);
+    Route::resource('/admin/posts', AdminPostsController::class);
 
 });
 
