@@ -30,7 +30,6 @@ Route::group(['middleware'=>'admin'], function(){
     Route::resource('/admin/posts', AdminPostsController::class);
     Route::get('/admin/messages', [AdminMessagesController::class,'index'])->name('admin.messages.index');
     Route::get('/admin/friendships', [AdminFriendshipsController::class,'index'])->name('admin.friendships.index');
-
 });
 
 Auth::routes();
