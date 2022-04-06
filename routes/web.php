@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminFriendshipsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.home');
 });
 
 Route::group(['middleware'=>'admin'], function(){
