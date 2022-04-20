@@ -4,13 +4,13 @@
             <div class="user-profile">
                 <div class="username-dt">
                     <div class="usr-pic">
-                        <img src="http://via.placeholder.com/100x100" alt="">
+                        <img width="100" height="100" src="{{ $user->photo }}" alt="">
                     </div>
                 </div>
                 <!--username-dt end-->
                 <div class="user-specs">
                     <h3>Marko Penava</h3>
-                    <span>Graphic Designer at Self Employed</span>
+                    <span>Student at {{ $user->faculty }}</span>
                 </div>
             </div>
             <!--user-profile end-->
@@ -18,10 +18,6 @@
                 <li>
                     <h4>Following</h4>
                     <span>34</span>
-                </li>
-                <li>
-                    <h4>Followers</h4>
-                    <span>155</span>
                 </li>
                 <li>
                     <a href="#" title="">View Profile</a>
@@ -36,54 +32,16 @@
             </div>
             <!--sd-title end-->
             <div class="suggestions-list">
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>Jessica William</h4>
-                        <span>Graphic Designer</span>
+                @foreach($potential_friends as $potential_friend)
+                    <div class="suggestion-usd">
+                        <img width="35" src="{{ $potential_friend->photo }}" alt="">
+                        <div class="sgt-text">
+                            <h4>{{ $potential_friend->name }}</h4>
+                            <span>Student at: {{ $potential_friend->faculty }}</span>
+                        </div>
+                        <span><i class="la la-plus"></i></span>
                     </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>John Doe</h4>
-                        <span>PHP Developer</span>
-                    </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>Poonam</h4>
-                        <span>Wordpress Developer</span>
-                    </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>Bill Gates</h4>
-                        <span>C & C++ Developer</span>
-                    </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>Jessica William</h4>
-                        <span>Graphic Designer</span>
-                    </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
-                <div class="suggestion-usd">
-                    <img src="http://via.placeholder.com/35x35" alt="">
-                    <div class="sgt-text">
-                        <h4>John Doe</h4>
-                        <span>PHP Developer</span>
-                    </div>
-                    <span><i class="la la-plus"></i></span>
-                </div>
+                @endforeach
                 <div class="view-more">
                     <a href="#" title="">View More</a>
                 </div>

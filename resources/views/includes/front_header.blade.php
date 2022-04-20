@@ -82,6 +82,14 @@
                         </div>
                         <!--notification-box end-->
                     </li>
+                    @if($user->role == 'administrator')
+                    <li>
+                        <a href="/admin" title="">
+                            <span><img src="images/icon5.png" alt=""></span>
+                            Admin
+                        </a>
+                    </li>
+                    @endif
                 </ul>
             </nav>
             <!--nav end-->
@@ -91,8 +99,8 @@
             <!--menu-btn end-->
             <div class="user-account">
                 <div class="user-info">
-                    <img src="http://via.placeholder.com/30x30" alt="">
-                    <a href="#" title="">John</a>
+                    <img width="30" height="30" src="{{ $user->photo }}" alt="">
+                    <a href="#" title="" >{{  strtok($user->name, " ")}}</a>
                     <i class="la la-sort-down"></i>
                 </div>
                 <div class="user-account-settingss">

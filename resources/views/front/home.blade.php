@@ -2,7 +2,9 @@
 
 
 @section('content')
-    @include('includes.front_left_sidebar')
+    @if(Auth::check())
+        @include('includes.front_left_sidebar')
+    @endif
     <!--main-left-sidebar end-->
 
     @include('includes.front_center_sidebar')

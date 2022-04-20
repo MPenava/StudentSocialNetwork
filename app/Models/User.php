@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 
 class User extends Authenticatable
@@ -54,6 +55,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getFacultyAttribute()
+    {
+        $email = explode('@',$this->email);
+        $email_domain = explode('.', $email[1]);
+        $domain = Str::of($email_domain[0])->upper();
+        
+        return $domain;
     }
 
 }

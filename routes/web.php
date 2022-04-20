@@ -20,9 +20,8 @@ use App\Http\Controllers\AdminFriendshipsController;
 |
 */
 
-Route::get('/', function () {
-    return view('front.home');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -34,4 +33,3 @@ Route::group(['middleware'=>'admin'], function(){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
