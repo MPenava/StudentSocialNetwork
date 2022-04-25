@@ -23,6 +23,7 @@ use App\Http\Controllers\AdminFriendshipsController;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('/admin/users', AdminUsersController::class);
