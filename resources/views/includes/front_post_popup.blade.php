@@ -2,24 +2,30 @@
     <div class="post-project">
         <h3>Create a post</h3>
         <div class="post-project-fields">
-            <form action="" method="POST">
+            {!! Form::open(['method'=>'POST', 'route' => 'post.store', 'files' => true]) !!}
                 <div class="row">
-                    <div class="col-lg-12">
-                        <input type="text" name="title" placeholder="Title">
+                    <div class="input-field col s12">
+                        {!! Form::text('title', null, ['class' => 'validate', 'placeholder'=>'Title']) !!}
                     </div>
-                    <div class="col-lg-12 form-group">
-                        <input class="form-control" type="file" name="photo">
+                </div>
+                <div class="row">
+                    <div class="group-form  col s6">
+                        {!! Form::file('photo', null, ['class' => 'form-control']) !!}
                     </div>
-                    <div class="col-lg-12">
-                        <textarea name="content" placeholder="Description"></textarea>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {!! Form::textarea('content', null, ['class' => 'form-control validate','placeholder'=>'Content', 'rows'=>3]) !!}
                     </div>
-                    <div class="col-lg-12">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
                         <ul>
                             <li><button class="active" type="submit" value="post">Post</button></li>
                         </ul>
                     </div>
                 </div>
-            </form>
+            {!! Form::close() !!}
         </div>
         <!--post-project-fields end-->
         <a href="#" title=""><i class="la la-times-circle-o"></i></a>

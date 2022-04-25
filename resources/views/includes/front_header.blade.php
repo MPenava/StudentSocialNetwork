@@ -15,7 +15,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="index.html" title="">
+                        <a href="/" title="">
                             <span><img src="images/icon1.png" alt=""></span>
                             Home
                         </a>
@@ -31,7 +31,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="" class="not-box-open">
+                        <a href="/messages" title="" class="not-box-open">
                             <span><img src="images/icon6.png" alt=""></span>
                             Messages
                         </a>

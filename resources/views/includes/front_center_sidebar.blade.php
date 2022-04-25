@@ -6,7 +6,7 @@
             </div>
             <div class="post-st">
                 <ul>
-                    <li><a class="post_project active" href="#" title="">New Post</a></li>
+                    <li><a class="post_project active" href="" title="">New Post</a></li>
                 </ul>
             </div>
             <!--post-st end-->
@@ -36,8 +36,7 @@
                 </div>
                 <div class="epi-sec">
                     <ul class="descp">
-                        <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                        <li><img src="images/icon8.png" alt=""><span>{{ $user->faculty }}</span></li>
                     </ul>
                     <ul class="bk-links">
                         <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -50,22 +49,13 @@
                         <img class="img-fluid" src="{{ $post->photo }}" alt="">
                     </ul>
                     <p>{{ $post->content }}</a></p>
-                    <ul class="skill-tags">
-                        <li><a href="#" title="">HTML</a></li>
-                        <li><a href="#" title="">PHP</a></li>
-                        <li><a href="#" title="">CSS</a></li>
-                        <li><a href="#" title="">Javascript</a></li>
-                        <li><a href="#" title="">Wordpress</a></li>
-                    </ul>
                 </div>
                 <div class="job-status-bar">
                     <ul class="like-com">
                         <li>
                             <a href="#"><i class="la la-heart"></i> Like</a>
                             <img src="images/liked-img.png" alt="">
-                            <span>25</span>
                         </li>
-                        <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
                     </ul>
                     <a><i class="la la-eye"></i>Views 50</a>
                 </div>
