@@ -10,15 +10,16 @@
                         <!--msg-title end-->
                         <div class="messages-list">
                             <ul>
-                                <li class="active">
+                                @foreach($messages as $message)
+                                <li class="">
                                     <div class="usr-msg-details">
                                         <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
+                                            <img width="50" height="50" src="{{$message->targetUser->photo}}" alt="">
                                             <span class="msg-status"></span>
                                         </div>
                                         <div class="usr-mg-info">
-                                            <h3>John Doe</h3>
-                                            <p>Lorem ipsum dolor <img src="images/smley.png" alt=""></p>
+                                            <h3>{{ $message->targetUser->name }}</h3>
+                                            <p>{{ Str::limit($message->content, 30) }}</p>
                                         </div>
                                         <!--usr-mg-info end-->
                                         <span class="posted_time">1:55 PM</span>
@@ -26,92 +27,7 @@
                                     </div>
                                     <!--usr-msg-details end-->
                                 </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>David Vane</h3>
-                                            <p>Vestibulum ac diam..</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>Nancy Dilan</h3>
-                                            <p>Quam vehicula.</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                            <span class="msg-status"></span>
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>Norman Kenney</h3>
-                                            <p>Nulla quis lorem ut..</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                            <span class="msg-status"></span>
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>James Dilan</h3>
-                                            <p>Vivamus magna just..</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>Mike Dorn</h3>
-                                            <p>Praesent sapien massa.</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
-                                <li>
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img src="http://via.placeholder.com/50x50" alt="">
-                                        </div>
-                                        <div class="usr-mg-info">
-                                            <h3>Patrick Morison</h3>
-                                            <p>Convallis a pellente...</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
+                                @endforeach      
                             </ul>
                         </div>
                         <!--messages-list end-->
@@ -250,11 +166,6 @@
                                     <input type="text" name="message" placeholder="Type a message here">
                                     <button type="submit">Send</button>
                                 </div>
-                                <ul>
-                                    <li><a href="#" title=""><i class="fa fa-smile-o"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-camera"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-paperclip"></i></a></li>
-                                </ul>
                             </form>
                         </div>
                         <!--message-send-area end-->

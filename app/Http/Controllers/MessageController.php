@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Message;
 
 class MessageController extends Controller
 {
@@ -16,7 +17,8 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('front.messages',compact('user'));
+        $messages = Message::where('source_id', $user->id)->get();
+        return view('front.messages',compact('user','messages'));
     }
 
     /**

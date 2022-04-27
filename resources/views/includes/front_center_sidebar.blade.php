@@ -23,25 +23,37 @@
                             <span><img src="images/clock.png" alt="">{{ $post->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
+                    @if($post->user_id == Auth::user()->id)
                     <div class="ed-opts">
                         <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
                         <ul class="ed-options">
                             <li><a href="#" title="">Edit Post</a></li>
-                            <li><a href="#" title="">Unsaved</a></li>
-                            <li><a href="#" title="">Unbid</a></li>
-                            <li><a href="#" title="">Close</a></li>
-                            <li><a href="#" title="">Hide</a></li>
+                            <li><a href="post/{{$post->id}}" title="" onclick="return confirm('Are you sure?')">Delete</a></li>
+                            <li>
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $post->id]]) !!}
+                                <a href="">
+                                    {!! Form::submit('Delete',['onclick' => "return confirm('Are you sure?')"]) !!}
+                                </a>
+                                {!! Form::close() !!}
+                            </li>
                         </ul>
                     </div>
+                    @endif
                 </div>
                 <div class="epi-sec">
                     <ul class="descp">
                         <li><img src="images/icon8.png" alt=""><span>{{ $user->faculty }}</span></li>
                     </ul>
+                    @if($post->user_id == Auth::user()->id)
                     <ul class="bk-links">
-                        <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
-                        <li><a href="#" title=""><i class="la la-envelope"></i></a></li>
+                        <li><a href="#" title=""><i class="la la-edit"></i></a></li>
+                        <li>
+                            {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $post->id]]) !!}
+                            <button type="submit" class="p-0 border-0 pe-auto" style="cursor: pointer;" onclick="return confirm('Are you sure?')"><i class="la la-trash-o bg-danger"></i></button>
+                            {!! Form::close() !!}
+                        </li>
                     </ul>
+                    @endif
                 </div>
                 <div class="job_descp">
                     <h3>{{ $post->title }}</h3>
@@ -76,4 +88,4 @@
     <!--main-ws-sec end-->
 </div>
 
-@include('includes.front_post_popup')
+@include('includes.front_create_post_popup')

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostCreateRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -92,6 +94,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        if(File::exists(public_path() . $post->photo)){
+            unlink(public_path() . $post->photo);
+        }
+        $post->delete();
+        return redirect('/');
     }
 }

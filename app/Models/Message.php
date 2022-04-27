@@ -14,4 +14,14 @@ class Message extends Model
         'content',
         'is_visible'
     ];
+
+    public function sourceUser()
+    {
+        return $this->belongsTo(User::class, 'source_id');
+    }
+    public function targetUser()
+    {
+        return $this->belongsTo(User::class, 'target_id');
+    }
+    
 }
