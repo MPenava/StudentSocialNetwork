@@ -23,22 +23,6 @@
                             <span><img src="images/clock.png" alt="">{{ $post->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
-                    @if($post->user_id == Auth::user()->id)
-                    <div class="ed-opts">
-                        <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-                        <ul class="ed-options">
-                            <li><a href="#" title="">Edit Post</a></li>
-                            <li><a href="post/{{$post->id}}" title="" onclick="return confirm('Are you sure?')">Delete</a></li>
-                            <li>
-                                {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $post->id]]) !!}
-                                <a href="">
-                                    {!! Form::submit('Delete',['onclick' => "return confirm('Are you sure?')"]) !!}
-                                </a>
-                                {!! Form::close() !!}
-                            </li>
-                        </ul>
-                    </div>
-                    @endif
                 </div>
                 <div class="epi-sec">
                     <ul class="descp">
@@ -46,7 +30,13 @@
                     </ul>
                     @if($post->user_id == Auth::user()->id)
                     <ul class="bk-links">
-                        <li><a href="#" title=""><i class="la la-edit"></i></a></li>
+                        <li>
+                            <a href="{{ route('post.edit', $post->id) }}" title="" class="">
+                                <button class="p-0 border-0 pe-auto" style="cursor: pointer;">
+                                    <i class="la la-edit"></i>
+                                </button>
+                            </a>
+                        </li>
                         <li>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $post->id]]) !!}
                             <button type="submit" class="p-0 border-0 pe-auto" style="cursor: pointer;" onclick="return confirm('Are you sure?')"><i class="la la-trash-o bg-danger"></i></button>
@@ -73,6 +63,9 @@
                 </div>
             </div>
             @endforeach
+            <?php
+                $post='';
+            ?>
             <!--post-bar end-->
             <div class="process-comm">
                 <div class="spinner">
@@ -89,3 +82,12 @@
 </div>
 
 @include('includes.front_create_post_popup')
+
+@section('scripts')
+
+<script>
+    $(document).ready(function() {
+    });
+</script>
+
+@endsection

@@ -71,7 +71,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $user = Auth::user();
+        return view('front.post.edit', compact('post','user'));
     }
 
     /**
@@ -83,7 +85,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post= Post::findOrFail($id);
+        $input = $request->all();
+
+        if($file = $request->file('photo')){
+            unlink(public_path() . $post->photo);
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name );
+
+            $input['photo'] = $name;
+        }
+
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+
+        return redirect('/');
     }
 
     /**
