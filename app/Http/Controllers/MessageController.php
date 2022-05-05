@@ -17,8 +17,10 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $messages = Message::where('source_id', $user->id)->get();
-        return view('front.messages',compact('user','messages'));
+        // $chats = Message::where('source_id', $user->id)->get();
+        $chats = Message::distinct()->select('target_id')->where('source_id', $user->id)->get();
+        $messages = null;
+        return view('front.messages',compact('user','chats','messages'));
     }
 
     /**
@@ -39,7 +41,11 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $input['source_id'] = Auth::user()->id;
+        
+        Message::create($input);
+        return back();
     }
 
     /**
@@ -50,7 +56,19 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $target=User::findOrFail($id);
+        $chats = Message::distinct()->select('target_id')->where('source_id', $user->id)->get();
+        $user_id=$user->id;
+        $messages = Message::where(function($query) use ($user_id, $id){
+                $query->where('source_id','=', $user_id)->orWhere('source_id','=', $id);
+            })
+            ->where(function($query) use ($user_id, $id){
+                $query->where('target_id','=', $user_id)->orWhere('target_id','=', $id);
+            })
+            ->orderBy('created_at','asc')
+            ->get();
+        return view('front.messages',compact('user', 'target', 'chats','messages'));
     }
 
     /**
@@ -61,7 +79,7 @@ class MessageController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

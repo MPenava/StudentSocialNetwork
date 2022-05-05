@@ -16,13 +16,13 @@
                 <ul>
                     <li>
                         <a href="/" title="">
-                            <span><img src="images/icon1.png" alt=""></span>
+                            <span><img src="../../images/icon1.png" alt=""></span>
                             Home
                         </a>
                     </li>
                     <li>
                         <a href="profiles.html" title="">
-                            <span><img src="images/icon4.png" alt=""></span>
+                            <span><img src="../../images/icon4.png" alt=""></span>
                             Profiles
                         </a>
                         <ul>
@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         <a href="/messages" title="" class="not-box-open">
-                            <span><img src="images/icon6.png" alt=""></span>
+                            <span><img src="../../images/icon6.png" alt=""></span>
                             Messages
                         </a>
                         <div class="notification-box msg">
@@ -43,7 +43,7 @@
                             <div class="nott-list">
                                 <div class="notfication-details">
                                     <div class="noty-user-img">
-                                        <img src="images/resources/ny-img1.png" alt="">
+                                        <img src="../../images/resources/ny-img1.png" alt="">
                                     </div>
                                     <div class="notification-info">
                                         <h3><a href="messages.html" title="">Jassica William</a> </h3>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="notfication-details">
                                     <div class="noty-user-img">
-                                        <img src="images/resources/ny-img2.png" alt="">
+                                        <img src="../images/resources/ny-img2.png" alt="">
                                     </div>
                                     <div class="notification-info">
                                         <h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="notfication-details">
                                     <div class="noty-user-img">
-                                        <img src="images/resources/ny-img3.png" alt="">
+                                        <img src="../../images/resources/ny-img3.png" alt="">
                                     </div>
                                     <div class="notification-info">
                                         <h3><a href="messages.html" title="">Jassica William</a></h3>
@@ -85,7 +85,7 @@
                     @if($user->role == 'administrator')
                     <li>
                         <a href="/admin" title="">
-                            <span><img src="images/icon5.png" alt=""></span>
+                            <span><img src="../../images/icon5.png" alt=""></span>
                             Admin
                         </a>
                     </li>

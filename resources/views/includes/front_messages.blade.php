@@ -10,23 +10,25 @@
                         <!--msg-title end-->
                         <div class="messages-list">
                             <ul>
-                                @foreach($messages as $message)
-                                <li class="">
-                                    <div class="usr-msg-details">
-                                        <div class="usr-ms-img">
-                                            <img width="50" height="50" src="{{$message->targetUser->photo}}" alt="">
-                                            <span class="msg-status"></span>
+                                @foreach($chats as $chat)
+                                <a href="{{ route('messages.show', $chat->target_id) }}">
+                                    <li class="">
+                                        <div class="usr-msg-details">
+                                            <div class="usr-ms-img">
+                                                <img width="50" height="50" src="{{$chat->targetUser->photo}}" alt="">
+                                                <span class="msg-status"></span>
+                                            </div>
+                                            <div class="usr-mg-info">
+                                                <h3>{{ $chat->targetUser->name }}</h3>
+                                                <p>{{ Str::limit($chat->content, 30) }}</p>
+                                            </div>
+                                            <!--usr-mg-info end-->
+                                            <span class="posted_time">1:55 PM</span>
+                                            <span class="msg-notifc">1</span>
                                         </div>
-                                        <div class="usr-mg-info">
-                                            <h3>{{ $message->targetUser->name }}</h3>
-                                            <p>{{ Str::limit($message->content, 30) }}</p>
-                                        </div>
-                                        <!--usr-mg-info end-->
-                                        <span class="posted_time">1:55 PM</span>
-                                        <span class="msg-notifc">1</span>
-                                    </div>
-                                    <!--usr-msg-details end-->
-                                </li>
+                                        <!--usr-msg-details end-->
+                                    </li>
+                                </a>
                                 @endforeach      
                             </ul>
                         </div>
@@ -34,16 +36,17 @@
                     </div>
                     <!--msgs-list end-->
                 </div>
+                @if($messages)
                 <div class="col-lg-8 col-md-12 pd-right-none pd-left-none">
                     <div class="main-conversation-box">
                         <div class="message-bar-head">
                             <div class="usr-msg-details">
                                 <div class="usr-ms-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
+                                    <img width="50" height="50"src="{{ $target->photo }}" alt="">
                                 </div>
                                 <div class="usr-mg-info">
-                                    <h3>John Doe</h3>
-                                    <p>Online</p>
+                                    <h3>{{ $target->name }}</h3>
+                                    <p>{{ $target->faculty}}</p>
                                 </div>
                                 <!--usr-mg-info end-->
                             </div>
@@ -51,127 +54,29 @@
                         </div>
                         <!--message-bar-head end-->
                         <div class="messages-line">
-                            <div class="main-message-box">
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                                <div class="message-dt">
-                                    <div class="message-inner-dt img-bx">
-                                        <img src="http://via.placeholder.com/151x125" alt="">
-                                        <img src="http://via.placeholder.com/151x125" alt="">
-                                        <img src="http://via.placeholder.com/151x125" alt="">
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>Sat, Aug 23, 1:08 PM</span>
-                                </div>
-                                <!--message-dt end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box ta-right">
-                                <div class="message-dt">
-                                    <div class="message-inner-dt">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>Sat, Aug 23, 1:08 PM</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box st3">
-                                <div class="message-dt st3">
-                                    <div class="message-inner-dt">
-                                        <p>Cras ultricies ligula.<img src="images/smley.png" alt=""></p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>5 minutes ago</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box ta-right">
-                                <div class="message-dt">
-                                    <div class="message-inner-dt">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>Sat, Aug 23, 1:08 PM</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box st3">
-                                <div class="message-dt st3">
-                                    <div class="message-inner-dt">
-                                        <p>Lorem ipsum dolor sit amet</p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>2 minutes ago</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box ta-right">
-                                <div class="message-dt">
-                                    <div class="message-inner-dt">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>Sat, Aug 23, 1:08 PM</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
-                            <div class="main-message-box st3">
-                                <div class="message-dt st3">
-                                    <div class="message-inner-dt">
-                                        <p>....</p>
-                                    </div>
-                                    <!--message-inner-dt end-->
-                                    <span>Typing...</span>
-                                </div>
-                                <!--message-dt end-->
-                                <div class="messg-usr-img">
-                                    <img src="http://via.placeholder.com/50x50" alt="">
-                                </div>
-                                <!--messg-usr-img end-->
-                            </div>
-                            <!--main-message-box end-->
+                            @foreach($messages as $message)
+                                @if($message->source_id == $user->id)
+                                    @include('includes.front_message_user')
+                                @else
+                                    @include('includes.front_message_target')
+                                @endif
+                            @endforeach
                         </div>
                         <!--messages-line end-->
                         <div class="message-send-area">
-                            <form>
+                        {!! Form::open(['method'=>'POST', 'route' => 'messages.store', 'files' => true]) !!}
                                 <div class="mf-field">
-                                    <input type="text" name="message" placeholder="Type a message here">
+                                    {!! Form::hidden('target_id', $target->id) !!}
+                                    {!! Form::text('content', null, ['class' => 'validate', 'placeholder'=>'Type a message here']) !!}
                                     <button type="submit">Send</button>
                                 </div>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                         <!--message-send-area end-->
                     </div>
                     <!--main-conversation-box end-->
                 </div>
+                @endif
             </div>
         </div>
         <!--messages-sec end-->
