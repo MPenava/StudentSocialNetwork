@@ -100,7 +100,7 @@
             <div class="user-account">
                 <div class="user-info">
                     <img width="30" height="30" src="{{ $user->photo }}" alt="">
-                    <a href="#" title="" >{{  strtok($user->name, " ")}}</a>
+                    <a href="#" title="">{{ strtok($user->name, " ")}}</a>
                     <i class="la la-sort-down"></i>
                 </div>
                 <div class="user-account-settingss">
@@ -140,7 +140,16 @@
                         <li><a href="#" title="">Faqs</a></li>
                         <li><a href="#" title="">Terms & Conditions</a></li>
                     </ul>
-                    <h3 class="tc"><a href="sign-in.html" title="">Logout</a></h3>
+                    <h3 class="tc">
+                        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </h3>
                 </div>
                 <!--user-account-settingss end-->
             </div>
