@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminMessagesController;
 use App\Http\Controllers\AdminFriendshipsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\FriendshipsController;
 
 
 /*
@@ -26,6 +27,7 @@ use App\Http\Controllers\MessageController;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/post', PostController::class);
 Route::resource('/messages', MessageController::class);
+Route::resource('/friendships', FriendshipsController::class);
 
 
 Route::group(['middleware'=>'admin'], function(){

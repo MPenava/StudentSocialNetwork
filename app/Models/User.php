@@ -49,12 +49,21 @@ class User extends Authenticatable
     protected $uploads = '/images/';
     public function getPhotoAttribute($photo)
     {
-        return $this->uploads . $photo;
+        if($photo == ''){
+            return "https://via.placeholder.com/150";
+        }else{
+            return $this->uploads . $photo;
+        }
     }
 
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function friendships()
+    {
+        return $this->hasMany(Friendship::class);
     }
 
     public function getFacultyAttribute()
@@ -65,5 +74,7 @@ class User extends Authenticatable
         
         return $domain;
     }
+
+
 
 }

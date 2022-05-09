@@ -21,14 +21,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="profiles.html" title="">
+                        <a href="/friendships" title="">
                             <span><img src="../../images/icon4.png" alt=""></span>
                             Profiles
                         </a>
-                        <ul>
-                            <li><a href="user-profile.html" title="">User Profile</a></li>
-                            <li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
-                        </ul>
                     </li>
                     <li>
                         <a href="/messages" title="" class="not-box-open">

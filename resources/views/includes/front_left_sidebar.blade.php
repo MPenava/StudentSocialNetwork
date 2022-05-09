@@ -9,7 +9,7 @@
                 </div>
                 <!--username-dt end-->
                 <div class="user-specs">
-                    <h3>Marko Penava</h3>
+                    <h3>{{ $user->name}}</h3>
                     <span>Student at {{ $user->faculty }}</span>
                 </div>
             </div>
