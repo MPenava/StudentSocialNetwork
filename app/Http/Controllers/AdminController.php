@@ -12,9 +12,11 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::count();
-        $posts = Post::count();
-        $messages = Message::count();
-        return view('admin.index', compact('users','posts','messages'));
+        $users_num = User::count();
+        $posts_num = Post::count();
+        $messages_num = Message::count();
+        $users = User::all();
+        $posts = Post::all();
+        return view('admin.index', compact('users','posts','users_num','posts_num','messages_num'));
     }
 }

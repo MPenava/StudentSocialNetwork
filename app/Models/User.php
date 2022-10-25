@@ -46,16 +46,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $uploads = '/images/';
-    public function getPhotoAttribute($photo)
-    {
-        if($photo == ''){
-            return "https://via.placeholder.com/150";
-        }else{
-            return $this->uploads . $photo;
-        }
-    }
-
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -75,6 +65,13 @@ class User extends Authenticatable
         return $domain;
     }
 
-
-
+    protected $uploads = '/images/';
+    public function getPhotoAttribute($photo)
+    {
+        if($photo == ''){
+            return "https://via.placeholder.com/150";
+        }else{
+            return $this->uploads . $photo;
+        }
+    }
 }

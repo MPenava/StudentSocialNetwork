@@ -24,6 +24,10 @@ class Post extends Model
 
     public function getPhotoAttribute($photo)
     {
-        return $this->uploads . $photo;
+        if($photo == ''){
+            return "https://via.placeholder.com/150";
+        }else{
+            return $this->uploads . $photo;
+        }
     }
 }

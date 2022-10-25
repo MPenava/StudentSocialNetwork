@@ -23,12 +23,10 @@ use App\Http\Controllers\FriendshipsController;
 |
 */
 
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/post', PostController::class);
 Route::resource('/messages', MessageController::class);
 Route::resource('/friendships', FriendshipsController::class);
-
 
 Route::group(['middleware'=>'admin'], function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');

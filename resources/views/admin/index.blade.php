@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-stacked red">
                         <div class="card-content">
-                            <h3>{{ $users }}</h3>
+                            <h3>{{ $users_num }}</h3>
                         </div>
                         <div class="card-action">
                             <strong>USERS</strong>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-stacked orange">
                         <div class="card-content">
-                            <h3>{{ $posts }}</h3>
+                            <h3>{{ $posts_num }}</h3>
                         </div>
                         <div class="card-action">
                             <strong>POSTS</strong>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-stacked blue">
                         <div class="card-content">
-                            <h3>{{ $messages }}</h3>
+                            <h3>{{ $messages_num }}</h3>
                         </div>
                         <div class="card-action">
                             <strong>MESSAGES</strong>
@@ -76,18 +76,13 @@
         <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="card-action">
-                    <b>Tasks Panel</b>
+                    <b>Users Panel</b>
                 </div>
                 <div class="card-image">
                     <div class="collection">
-                        <a href="#!" class="collection-item">Red<span class="new badge red" data-badge-caption="red">4</span></a>
-                        <a href="#!" class="collection-item">Blue<span class="new badge blue" data-badge-caption="blue">4</span></a>
-                        <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-                        <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-                        <a href="#!" class="collection-item">Alan<span class="new badge blue" data-badge-caption="blue">4</span></a>
-                        <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-                        <a href="#!" class="collection-item">Custom Badge Captions<span class="new badge" data-badge-caption="custom caption">4</span></a>
-                        <a href="#!" class="collection-item">Custom Badge Captions<span class="badge" data-badge-caption="custom caption">4</span></a>
+                        @foreach($users as $user)
+                        <a href="#!" class="collection-item">{{ $user->name }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -99,42 +94,17 @@
                 </div>
                 <div class="card-image">
                     <ul class="collection">
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle green">track_changes</i>
-                            <span class="title">Title</span>
-                            <p>
-                                First Line <br />
-                                Second Line
-                            </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle">folder</i>
-                            <span class="title">Title</span>
-                            <p>
-                                First Line <br />
-                                Second Line
-                            </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle green">track_changes</i>
-                            <span class="title">Title</span>
-                            <p>
-                                First Line <br />
-                                Second Line
-                            </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <i class="material-icons circle red">play_arrow</i>
-                            <span class="title">Title</span>
-                            <p>
-                                First Line <br />
-                                Second Line
-                            </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                        </li>
+                        @foreach($posts as $post)
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle green"><img width=55 height=55 src="{{ $post->user->photo }} " alt="No image"><img src=""></img></i>
+                                <span class="title">{{ $post->title }}</span>
+                                <p class="p-2>
+                                    <span  text-primary">By</span> {{ $post->user->name }}
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
